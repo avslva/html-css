@@ -1,0 +1,160 @@
+body{
+  height: 100vh;
+  margin: 0;
+  text-align: center;
+  width: 100%;
+}
+
+body:after {
+  content: "";
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+}
+
+.widget{
+  background-image: url("resources/tokyo.jpg");
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.block {
+  min-width: 300px;
+}
+
+.block-img {
+  background-image: url("resources/tokyo1.jpg");
+}
+
+.sun-img {
+  box-sizing: border-box;
+}
+
+.weather {
+  background: #42282b;
+  font-size: 50px;
+  opacity: 0.8;
+}
+
+.date {
+  background: #ad2d38;
+  font-size: 20px;
+  opacity: 0.8;
+}
+
+.text {
+  color: white;
+  line-height: 100px;
+}
+
+@media all and (max-width: 767px) {
+  .container {
+    display: grid;
+    grid-template-rows: 114px 114px 114px 114px;
+    grid-template-areas:
+      "sun-img"
+      "weather"
+      "date"
+      "degrees";
+  }
+
+  .widget {
+    padding: 0;
+  }
+
+  .block {
+    min-height: 114px;
+  }
+
+  .block-img {
+    grid-row-start: 1;
+    grid-row-end: 4;
+    grid-column-start: 1;
+  }
+
+  .sun-img {
+    grid-row-start: 1;
+    grid-column-start: 1;
+    min-height: 100px;
+    padding: 5px;
+  }
+
+  .weather {
+    grid-row-start: 2;
+    grid-column-start: 1;
+  }
+
+  .date {
+    grid-row-start: 3;
+    grid-column-start: 1;
+  }
+
+  .degrees {
+    background: white;
+    color: #ad2d38;
+    font-size: 50px;
+    grid-row-start: 4;
+    height: 100px;
+    line-height: 100px;
+    opacity: 0.8;
+    width: 300px;
+  }
+
+  .degrees::after{
+    content: "28\2103"
+  }
+}
+
+@media all and (min-width: 768px) {
+  .container {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 200px 100px 100px;
+    grid-template-areas:
+      "sun-img degrees"
+      "weather degrees"
+      "date degrees";
+  }
+
+  .widget {
+    padding: 16px 72px;
+  }
+
+  .container {
+    box-shadow: 0 0 5px;
+    margin: 8% auto;
+    width: 600px;
+  }
+
+  .block-img {
+    grid-row-start: 1;
+    grid-row-end: 4;
+    grid-column-start: 1;
+  }
+
+  .sun-img {
+    grid-row-start: 1;
+    grid-column-start: 1;
+    min-height: 200px;
+    padding-top: 16%;
+  }
+
+  .weather {
+    grid-row-start: 2;
+    grid-column-start: 1;
+  }
+
+  .date {
+    grid-row-start: 3;
+    grid-column-start: 1;
+  }
+
+  .degrees {
+    background-image: url("resources/degrees.png");
+    grid-row-start: 1;
+    grid-row-end: 4;
+    grid-column-start: 2;
+    min-height: 200px;
+    min-width: 262px;
+  }
+}
